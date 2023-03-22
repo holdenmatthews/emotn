@@ -5,7 +5,7 @@ const cors = require('cors')
 
 const { SERVER_PORT } = process.env
 const { register, login } = require('./controllers/authCtrl')
-// const { getAllLogs, addLog } = require('./controllers/logsCtrl')
+const { getAllLogs, addLog, getEmotions } = require('./controllers/logsCtrl')
 const { sequelize } = require('./util/database')
 const { User } = require('./models/user')
 const { Log } = require('./models/log')
@@ -30,8 +30,10 @@ LogEmotion.belongsTo(Emotion)
 app.post('/api/register', register)
 app.post('/api/login', login)
 
-// app.get('/api/logs', getAllLogs)
-// app.post('/api/logs', addLog)
+app.get('/api/logs/:id', getAllLogs)
+app.post('/api/logs/:id', addLog)
+
+app.get('/api/emotions', getEmotions)
 
 // sequelize.sync({ force: true }).then(() => seedDatabase())
 sequelize.sync()

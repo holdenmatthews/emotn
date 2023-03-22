@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useContext } from "react";
-// import AuthContext from "./store/authContext";
+import AuthContext from "./store/authContext";
 import "./App.css";
 
 import Header from "./components/Header";
@@ -9,7 +9,7 @@ import Auth from "./components/Auth";
 import AddLog from "./components/AddLog";
 
 function App() {
-//   const authCtx = useContext(AuthContext);
+  const authCtx = useContext(AuthContext);
 
   return (
     <div className="App">
@@ -17,18 +17,18 @@ function App() {
       <Routes>
         <Route
           path="/"
-          // element={!authCtx.token ? <Auth /> : <Navigate to="/home" />}
-          element={<Auth />}
+          element={!authCtx.token ? <Auth /> : <Navigate to="/home" />}
+          // element={<Auth />}
         />
         <Route
           path="/home"
-          // element={authCtx.token ? <Home /> : <Navigate to="/" />}
-          element={<Home />}
+          element={authCtx.token ? <Home /> : <Navigate to="/" />}
+          // element={<Home />}
         />
         <Route
           path="/add-log"
-          // element={authCtx.token ? <AddLog /> : <Navigate to="/" />}
-          element={<AddLog />}
+          element={authCtx.token ? <AddLog /> : <Navigate to="/" />}
+          // element={<AddLog />}
         />
       </Routes>
     </div>
