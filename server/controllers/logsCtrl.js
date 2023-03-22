@@ -32,7 +32,9 @@ module.exports = {
     getEmotions: async (req, res) => {
         console.log('getEmotions hit')
         try {
-//get list of all emotions & id's from table
+            const emotions = await Emotion.findAll({})
+            console.log(emotions)
+            res.status(200).send(emotions)
         } catch {
             console.log('ERROR IN getEmotions')
             console.log(err)
