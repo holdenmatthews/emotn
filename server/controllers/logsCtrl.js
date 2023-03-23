@@ -25,14 +25,15 @@ module.exports = {
             console.log(selectedEmotions)
             const newLog = await Log.create({ userId, notes, datetime })
             selectedEmotions.map( async (emotion) => {
-                // const emotionId = //emotion key from body
-                // const emotion_value = //emotion value from body
+                const emotionId = emotion.id
+                const emotion_value = emotion.value
                 await LogEmotion.create({
                     logId: newLog.id,
                     emotionId,
                     emotion_value
                 })
             })
+            res.sendStatus(200)
             } catch (err) {
             console.log('ERROR IN addLog')
             console.log(err)
@@ -44,7 +45,7 @@ module.exports = {
         console.log('getEmotions hit')
         try {
             const emotions = await Emotion.findAll({})
-            console.log(emotions)
+            // console.log(emotions)
             res.status(200).send(emotions)
         } catch {
             console.log('ERROR IN getEmotions')
