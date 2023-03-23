@@ -20,9 +20,20 @@ module.exports = {
     addLog: async (req, res) => {
         console.log('addLoghit')
         try {
-//insert user_id, log_notes, and log_datetime
-//for each emotion (insert log_id, emotion_id, & emotion_value)
-        } catch (err) {
+            const { userId } = req.params
+            const { notes, datetime, selectedEmotions } = req.body
+            console.log(selectedEmotions)
+            const newLog = await Log.create({ userId, notes, datetime })
+            selectedEmotions.map( async (emotion) => {
+                // const emotionId = //emotion key from body
+                // const emotion_value = //emotion value from body
+                await LogEmotion.create({
+                    logId: newLog.id,
+                    emotionId,
+                    emotion_value
+                })
+            })
+            } catch (err) {
             console.log('ERROR IN addLog')
             console.log(err)
             res.sendStatus(400)

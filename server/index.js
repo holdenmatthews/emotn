@@ -30,8 +30,8 @@ LogEmotion.belongsTo(Emotion)
 app.post('/api/register', register)
 app.post('/api/login', login)
 
-app.get('/api/logs/:id', getAllLogs)
-app.post('/api/logs/:id', addLog)
+app.get('/api/logs/:userId', getAllLogs)
+app.post('/api/logs/:userId', addLog)
 
 app.get('/api/emotions', getEmotions)
 
