@@ -22,7 +22,7 @@ module.exports = {
         try {
             const { userId } = req.params
             const { notes, datetime, selectedEmotions } = req.body
-            console.log(selectedEmotions)
+            
             const newLog = await Log.create({ userId, notes, datetime })
             selectedEmotions.map( async (emotion) => {
                 const emotionId = emotion.id
