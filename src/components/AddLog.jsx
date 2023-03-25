@@ -9,6 +9,8 @@ const AddLog = () => {
   const [emotionList, setEmotionList] = useState([])
   const [selectedEmotions, setSelectedEmotions] = useState([])
   const [emotionValues, setEmotionValues] = useState({})
+  const [notes, setNotes] = useState("")
+  const [datetime, setDatetime] = useState("")
   const { userId } = useContext(AuthContext)
 
   const getEmotions = () => {
@@ -55,6 +57,10 @@ const AddLog = () => {
         removeEmotion={removeEmotion}
         emotionValues={emotionValues}
         setEmotionValues={setEmotionValues}
+        notes={notes}
+        setNotes={setNotes}
+        datetime={datetime}
+        setDatetime={setDatetime}
       />
       </div>
   )
