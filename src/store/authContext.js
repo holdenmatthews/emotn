@@ -34,7 +34,7 @@ const getLocalData = () => {
   return {
     token: storedToken,
     duration: remainingTime,
-    userId: storedId
+    userId: +storedId
   }
 }
 
@@ -51,7 +51,7 @@ export const AuthContextProvider = (props) => {
   }
 
   const [token, setToken] = useState(initialToken)
-  const [userId, setUserId] = useState(null)
+  const [userId, setUserId] = useState(initialId)
 
 
   const logout = useCallback(() => {

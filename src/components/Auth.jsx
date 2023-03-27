@@ -32,7 +32,6 @@ const Auth = () => {
       : axios
           .post(`${baseURL}/api/login`, { username, password })
           .then((res) => {
-            console.log(res.data);
             authCtx.login(res.data.token, res.data.exp, res.data.userId);
             setUsername("");
             setPassword("");

@@ -11,7 +11,7 @@ const AddLog = () => {
   const [emotionValues, setEmotionValues] = useState({})
   const [notes, setNotes] = useState("")
   const [datetime, setDatetime] = useState("")
-  const { userId } = useContext(AuthContext)
+  const { token, userId } = useContext(AuthContext)
 
   const getEmotions = () => {
     axios.get(`http://localhost:4444/api/emotions`)
@@ -29,13 +29,18 @@ const AddLog = () => {
   }
 
   const addLog = () => {
+    console.log(userId)
     axios.post(`http://localhost:4444/api/logs/${userId}`, {
       notes,
       datetime,
       emotionValues
+    }, {
+      headers: {
+        authorization: token
+      }
     })
     .then((res) => {
-
+      console.log(res.data)
     })
     .catch((err) => console.log(err))
   }
@@ -63,6 +68,7 @@ const AddLog = () => {
         setNotes={setNotes}
         datetime={datetime}
         setDatetime={setDatetime}
+        addLog={addLog}
       />
       </div>
   )

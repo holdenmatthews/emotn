@@ -2,7 +2,7 @@ import React from "react";
 import EmotionValue from "./EmotionValue";
 
 const LogForm = (props) => {
-  const { selectedEmotions, removeEmotion, emotionValues, setEmotionValues, notes, setNotes, datetime, setDatetime } = props;
+  const { selectedEmotions, removeEmotion, emotionValues, setEmotionValues, notes, setNotes, datetime, setDatetime, addLog } = props;
 
   return (
     <div>
@@ -26,7 +26,7 @@ const LogForm = (props) => {
       <label htmlFor="notes">Notes</label>
       <textarea name="notes" value={notes} onChange={(e) => setNotes(e.target.value)}/>
       <br/>
-      <button>Submit</button>
+      <button onClick={() => addLog()}>Submit</button>
     </div>
   );
 };
