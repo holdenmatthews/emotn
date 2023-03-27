@@ -10,6 +10,6 @@ module.exports = {
             allowNull: false,
             primaryKey: true
         },
-        emotion_value: DataTypes.INTEGER
+        emotion_value: DataTypes.FLOAT
     })
 }

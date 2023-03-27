@@ -7,7 +7,7 @@ import AuthContext from '../store/authContext'
 
 const AddLog = () => {
   const [emotionList, setEmotionList] = useState([])
-  const [selectedEmotions, setSelectedEmotions] = useState([])
+  const [selectedEmotions, setSelectedEmotions] = useState({})
   const [emotionValues, setEmotionValues] = useState({})
   const [notes, setNotes] = useState("")
   const [datetime, setDatetime] = useState("")
@@ -21,15 +21,15 @@ const AddLog = () => {
     .catch((err) => console.log(err))
   }
 
-  const removeEmotion = (emotion, i) => {
-        selectedEmotions.splice(i, 1)
-        setSelectedEmotions([...selectedEmotions])
-        delete emotionValues[emotion]
+  const removeEmotion = (emotionId) => {
+        delete selectedEmotions[emotionId]
+        setSelectedEmotions({...selectedEmotions})
+        delete emotionValues[emotionId]
         setEmotionValues({...emotionValues})
   }
 
   const addLog = () => {
-    console.log(userId)
+    // console.log(emotionValues)
     axios.post(`http://localhost:4444/api/logs/${userId}`, {
       notes,
       datetime,

@@ -33,12 +33,12 @@ module.exports = {
       const { notes, datetime, emotionValues } = req.body;
       console.log(emotionValues);
       const newLog = await Log.create({ userId, notes, datetime });
-      Object.keys(emotionValues).forEach(async (key, i) => {
-        const emotion_id = key;
+      Object.keys(emotionValues).forEach(async (key) => {
+        const emotionId = key;
         const emotion_value = emotionValues[key];
         await LogEmotion.create({
           logId: newLog.id,
-          emotion_id,
+          emotionId,
           emotion_value,
         });
       });

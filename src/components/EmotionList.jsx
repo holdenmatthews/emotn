@@ -6,10 +6,11 @@ const EmotionList = (props) => {
     const handleSelect = (e) => {
         const newEmotionId = e.target.id
         const newEmotionName = e.target.textContent
-        if (!selectedEmotions.includes(newEmotionName)) {
-        setSelectedEmotions([...selectedEmotions, newEmotionName])
+        if (!selectedEmotions.newEmotionId) {
+        setSelectedEmotions({...selectedEmotions, [newEmotionId]: newEmotionName})
         setEmotionValues({...emotionValues, [newEmotionId]: 0})
         }
+        console.log(selectedEmotions, emotionValues)
       }
 
   return (
