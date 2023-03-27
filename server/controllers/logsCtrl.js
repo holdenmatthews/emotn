@@ -7,9 +7,18 @@ module.exports = {
   getAllLogs: async (req, res) => {
     console.log("getAllLogs hit");
     try {
-      //select all logs where user_id === user_id
-      //select all log_emotions (emotion_value) where log_id === log_id
-      //select all emotion_names where emotion_id === emotion_id
+        const { userId } = req.params
+        const logs = await Log.findAll({
+            where: { userId: userId },
+            include: [{
+                model: LogEmotion,
+                required: true,
+                include: [{
+                    model: Emotion
+                }]
+            }]
+        })
+        res.status(200).send(logs)
     } catch (err) {
       console.log("ERROR IN getAllLogs");
       console.log(err);
