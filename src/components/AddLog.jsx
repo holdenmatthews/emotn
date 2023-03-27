@@ -30,7 +30,9 @@ const AddLog = () => {
 
   const addLog = () => {
     axios.post(`http://localhost:4444/api/logs/${userId}`, {
-//finish axios post request here
+      notes,
+      datetime,
+      emotionValues
     })
     .then((res) => {
 

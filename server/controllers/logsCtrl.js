@@ -21,19 +21,21 @@ module.exports = {
         console.log('addLoghit')
         try {
             const { userId } = req.params
-            const { notes, datetime, selectedEmotions } = req.body
+            const { notes, datetime, emotionValues } = req.body
             
             const newLog = await Log.create({ userId, notes, datetime })
-            selectedEmotions.map( async (emotion) => {
-                const emotionId = emotion.id
-                const emotion_value = emotion.value
-                await LogEmotion.create({
-                    logId: newLog.id,
-                    emotionId,
-                    emotion_value
+            emotionValues.map( async (emotion) => {
+
+//update sequelize to reflect emotionValues rather than selectedEmotions. {name: value}
+
+                // const emotionId = emotion.id
+                // const emotion_value = emotion.value
+                // await LogEmotion.create({
+                //     logId: newLog.id,
+                //     emotionId,
+                //     emotion_value
                 })
-            })
-            res.sendStatus(200)
+                res.sendStatus(200)
             } catch (err) {
             console.log('ERROR IN addLog')
             console.log(err)
