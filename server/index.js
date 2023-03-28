@@ -11,6 +11,7 @@ const { User } = require('./models/user')
 const { Log } = require('./models/log')
 const { LogEmotion } = require('./models/logEmotion')
 const { Emotion } = require('./models/emotion')
+const { isAuthenticated } = require('./middleware/isAuthenticated')
 // const { seedDatabase } = require('./util/seed')
 
 const app = express()
@@ -30,9 +31,9 @@ LogEmotion.belongsTo(Emotion)
 app.post('/api/register', register)
 app.post('/api/login', login)
 
-app.get('/api/logs/:userId', getAllLogs)
-app.post('/api/logs/:userId', addLog)
-app.delete('/api/logs/:logId', deleteLog)
+app.get('/api/logs/:userId', isAuthenticated, getAllLogs)
+app.post('/api/logs/:userId', isAuthenticated, addLog)
+app.delete('/api/logs/:logId', isAuthenticated, deleteLog)
 
 app.get('/api/emotions', getEmotions)
 
