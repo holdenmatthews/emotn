@@ -5,7 +5,7 @@ const cors = require('cors')
 
 const { SERVER_PORT } = process.env
 const { register, login } = require('./controllers/authCtrl')
-const { getAllLogs, addLog, getEmotions } = require('./controllers/logsCtrl')
+const { getAllLogs, addLog, getEmotions, deleteLog } = require('./controllers/logsCtrl')
 const { sequelize } = require('./util/database')
 const { User } = require('./models/user')
 const { Log } = require('./models/log')
@@ -32,6 +32,7 @@ app.post('/api/login', login)
 
 app.get('/api/logs/:userId', getAllLogs)
 app.post('/api/logs/:userId', addLog)
+app.delete('/api/logs/:logId')
 
 app.get('/api/emotions', getEmotions)
 

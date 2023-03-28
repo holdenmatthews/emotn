@@ -1,13 +1,18 @@
 import React from 'react'
+import axios from 'axios'
 
 const LogCard = (props) => {
   const { log } = props
+  const { datetime } = log
+  const newDatetime = new Date(datetime)
 
-  console.log(log)
+  const deleteLog = () => {
+    axios.delete(``)
+  }
 
   return (
     <div>
-      <h3>{log.datetime}</h3>
+      <h3>{newDatetime.toLocaleString()}</h3>
       {log.log_emotions.map((emotion) => {
         return (<div>
           <h4>{emotion.emotion.name}</h4>
@@ -15,6 +20,7 @@ const LogCard = (props) => {
         </div>)
       })}
       <p>{log.notes}</p>
+      <button>Delete Log</button>
     </div>
   )
 }

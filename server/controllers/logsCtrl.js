@@ -56,10 +56,22 @@ module.exports = {
       const emotions = await Emotion.findAll({});
       // console.log(emotions)
       res.status(200).send(emotions);
-    } catch {
+    } catch (err) {
       console.log("ERROR IN getEmotions");
       console.log(err);
       res.sendStatus(400);
     }
   },
+
+  deleteLog: async (req, res) => {
+    console.log('deleteLog hit')
+    try {
+      const { logId } = req.params
+      await Log.destroy({where: {id: +logId}})
+      res.sendStatus(200)
+    } catch (err) {
+      console.log(err)
+      res.sendStatus(400)
+    }
+  }
 };
