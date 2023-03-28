@@ -1,8 +1,21 @@
 import React from 'react'
 
-const LogCard = () => {
+const LogCard = (props) => {
+  const { log } = props
+
+  console.log(log)
+
   return (
-    <div>LogCard</div>
+    <div>
+      <h3>{log.datetime}</h3>
+      {log.log_emotions.map((emotion) => {
+        return (<div>
+          <h4>{emotion.emotion.name}</h4>
+          <h4>{emotion.emotion_value}</h4>
+        </div>)
+      })}
+      <p>{log.notes}</p>
+    </div>
   )
 }
 

@@ -15,7 +15,7 @@ const Header = () => {
               <NavLink to="/home">Home</NavLink>
             </li>
             <li>
-              <NavLink to="/add-log">Add Log</NavLink>
+              <NavLink to="/new-log">Add Log</NavLink>
             </li>
             <li>
               <button onClick={() => authCtx.logout()}>Logout</button>

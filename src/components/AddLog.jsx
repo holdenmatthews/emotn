@@ -41,6 +41,10 @@ const AddLog = () => {
     })
     .then((res) => {
       console.log(res.data)
+      setSelectedEmotions({})
+      setEmotionValues({})
+      setNotes("")
+      setDatetime("")
     })
     .catch((err) => console.log(err))
   }

@@ -1,8 +1,14 @@
 import React from 'react'
+import LogCard from './LogCard'
 
-const LogDisplay = () => {
+const LogDisplay = (props) => {
+  const { userLogs } = props
   return (
-    <div>LogDisplay</div>
+    <div>
+      {userLogs.map((log) => {
+        return <LogCard log={log}/>
+      })}
+    </div>
   )
 }
 

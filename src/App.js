@@ -26,7 +26,7 @@ function App() {
           // element={<Home />}
         />
         <Route
-          path="/add-log"
+          path="/new-log"
           element={authCtx.token ? <AddLog /> : <Navigate to="/" />}
           // element={<AddLog />}
         />
