@@ -1,14 +1,9 @@
 import React from 'react'
-import axios from 'axios'
 
 const LogCard = (props) => {
-  const { log } = props
+  const { log, deleteLog } = props
   const { datetime } = log
   const newDatetime = new Date(datetime)
-
-  const deleteLog = () => {
-    axios.delete(``)
-  }
 
   return (
     <div>
@@ -20,7 +15,7 @@ const LogCard = (props) => {
         </div>)
       })}
       <p>{log.notes}</p>
-      <button>Delete Log</button>
+      <button onClick={() => deleteLog(log.id)}>Delete Log</button>
     </div>
   )
 }

@@ -4,6 +4,7 @@ import EmotionList from './EmotionList'
 import LogForm from './LogForm'
 import styles from './addLog.css'
 import AuthContext from '../store/authContext'
+import { useNavigate } from 'react-router-dom'
 
 const AddLog = () => {
   const [emotionList, setEmotionList] = useState([])
@@ -12,6 +13,7 @@ const AddLog = () => {
   const [notes, setNotes] = useState("")
   const [datetime, setDatetime] = useState("")
   const { token, userId } = useContext(AuthContext)
+  const navigate = useNavigate()
 
   const getEmotions = () => {
     axios.get(`http://localhost:4444/api/emotions`)
@@ -45,6 +47,7 @@ const AddLog = () => {
       setEmotionValues({})
       setNotes("")
       setDatetime("")
+      navigate('/home')
     })
     .catch((err) => console.log(err))
   }

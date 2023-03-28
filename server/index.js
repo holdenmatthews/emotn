@@ -32,7 +32,7 @@ app.post('/api/login', login)
 
 app.get('/api/logs/:userId', getAllLogs)
 app.post('/api/logs/:userId', addLog)
-app.delete('/api/logs/:logId')
+app.delete('/api/logs/:logId', deleteLog)
 
 app.get('/api/emotions', getEmotions)
 
