@@ -2,12 +2,12 @@ import React from 'react'
 import LogCard from './LogCard'
 
 const LogDisplay = (props) => {
-  const { userLogs, deleteLog } = props
+  const { displayLogs, deleteLog } = props
   // console.log(userLogs)
   return (
     <div>
       {
-          userLogs.sort((a,b) => new Date(a.datetime).getTime() - new Date(b.datetime).getTime())
+          displayLogs.sort((a,b) => new Date(a.datetime).getTime() - new Date(b.datetime).getTime())
           .reverse().map((log) => <LogCard log={log} key={log.id} deleteLog={deleteLog} />)
       }
     </div>

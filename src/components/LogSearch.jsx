@@ -5,7 +5,7 @@ const LogSearch = (props) => {
 
     const setMin = (e) => {
         setStartDate(e.target.value)
-        // console.log(startDate)
+        // console.log(startDate)    
     }
 
     const setMax = (e) => {
