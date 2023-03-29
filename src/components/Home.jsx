@@ -43,19 +43,6 @@ const Home = () => {
     }
   };
 
-  const deleteLog = (logId) => {
-    axios
-      .delete(`http://localhost:4444/api/logs/${logId}`, {
-        headers: {
-          authorization: token,
-        },
-      })
-      .then(() => {
-        getUserLogs();
-      })
-      .catch((err) => console.log(err));
-  };
-
   useEffect(() => {
     getUserLogs();
     console.log(userLogs);
@@ -74,7 +61,7 @@ const Home = () => {
         endDate={endDate}
         setEndDate={setEndDate}
       />
-      <LogDisplay displayLogs={displayLogs} key={1} deleteLog={deleteLog} />
+      <LogDisplay displayLogs={displayLogs} key={1} getUserLogs={getUserLogs} />
     </div>
   );
 };

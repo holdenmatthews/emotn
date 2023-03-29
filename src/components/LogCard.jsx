@@ -1,9 +1,25 @@
-import React from 'react'
+import { useContext } from 'react'
+import axios from 'axios'
+import AuthContext from "../store/authContext";
 
 const LogCard = (props) => {
-  const { log, deleteLog } = props
+  const { log, getUserLogs } = props
   const { datetime } = log
   const newDatetime = new Date(datetime)
+  const { token, userId } = useContext(AuthContext);
+
+  const deleteLog = (logId) => {
+    axios
+      .delete(`http://localhost:4444/api/logs/${logId}`, {
+        headers: {
+          authorization: token,
+        },
+      })
+      .then(() => {
+        getUserLogs();
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div>
