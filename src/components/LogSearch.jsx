@@ -13,6 +13,11 @@ const LogSearch = (props) => {
         // console.log(endDate)
     }
 
+    const clearDates = () => {
+      setStartDate("")
+      setEndDate("")
+    }
+
   return (
     <div>
       <h3>Search for logs within a range of dates(included):</h3>
@@ -20,6 +25,7 @@ const LogSearch = (props) => {
       <input type="date" name="datemin" value={startDate} onChange={(e) => setMin(e)} />
       <label htmlFor="datemax">Range End</label>
       <input type="date" name="datemax" value={endDate} onChange={(e) => setMax(e)} />
+      <button onClick={() => clearDates()}>Clear Dates</button>
     </div>
   );
 };

@@ -7,18 +7,22 @@ module.exports = {
   getAllLogs: async (req, res) => {
     console.log("getAllLogs hit");
     try {
-        const { userId } = req.params
-        const logs = await Log.findAll({
-            where: { userId: userId },
-            include: [{
-                model: LogEmotion,
-                required: true,
-                include: [{
-                    model: Emotion
-                }]
-            }]
-        })
-        res.status(200).send(logs)
+      const { userId } = req.params;
+      const logs = await Log.findAll({
+        where: { userId: userId },
+        include: [
+          {
+            model: LogEmotion,
+            required: true,
+            include: [
+              {
+                model: Emotion,
+              },
+            ],
+          },
+        ],
+      });
+      res.status(200).send(logs);
     } catch (err) {
       console.log("ERROR IN getAllLogs");
       console.log(err);
@@ -64,14 +68,43 @@ module.exports = {
   },
 
   deleteLog: async (req, res) => {
-    console.log('deleteLog hit')
+    console.log("deleteLog hit");
     try {
-      const { logId } = req.params
-      await Log.destroy({where: {id: +logId}})
-      res.sendStatus(200)
+      const { logId } = req.params;
+      await Log.destroy({ where: { id: +logId } });
+      res.sendStatus(200);
     } catch (err) {
-      console.log(err)
-      res.sendStatus(400)
+      console.log(err);
+      res.sendStatus(400);
     }
-  }
+  },
+
+  updateLog: async (req, res) => {
+    console.log("updateLog hit");
+    try {
+      const { logId } = req.params;
+      await Log.update(
+        {
+          notes,
+          datetime,
+          emotionValues,
+        },
+        { where: logId }
+      );
+      Object.keys(emotionValues).forEach(async (key) => {
+        const emotionId = key;
+        const emotion_value = emotionValues[key];
+        await LogEmotion.update(
+          {
+            emotionId,
+            emotion_value,
+          },
+          { where: logId }
+        );
+      });
+    } catch (err) {
+      console.log(err);
+      res.sendStatus(400);
+    }
+  },
 };

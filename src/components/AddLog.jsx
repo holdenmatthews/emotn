@@ -16,7 +16,11 @@ const AddLog = () => {
   const navigate = useNavigate()
 
   const getEmotions = () => {
-    axios.get(`http://localhost:4444/api/emotions`)
+    axios.get(`http://localhost:4444/api/emotions`, {
+      headers: {
+        authorization: token
+      }
+    })
     .then((res) => {
       setEmotionList(res.data)
     })
