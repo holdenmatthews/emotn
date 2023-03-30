@@ -24,7 +24,7 @@ const Header = () => {
         ) : (
           <ul>
             <li>
-              <NavLink to="/">Auth</NavLink>
+              <NavLink to="/"></NavLink>
             </li>
           </ul>
         )}
