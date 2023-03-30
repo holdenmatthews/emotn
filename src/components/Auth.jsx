@@ -54,14 +54,14 @@ const Auth = () => {
         <h1 className="text-green-800 text-3xl">Welcome to Mood!</h1>
         <form onSubmit={submitHandler} className="flex flex-row gap-4">
           <input
-            className="px-2"
+            className="px-2 rounded"
             type="text"
             value={username}
             placeholder="username"
             onChange={(e) => setUsername(e.target.value)}
           />
           <input
-            className="px-2"
+            className="px-2 rounded"
             type="password"
             value={password}
             placeholder="password"

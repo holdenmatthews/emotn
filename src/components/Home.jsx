@@ -54,7 +54,7 @@ const Home = () => {
   }, [startDate, endDate, userLogs]);
 
   return (
-    <div>
+    <div className="bg-gray-200 flex flex-col items-center gap-4 p-4">
       <LogSearch
         startDate={startDate}
         setStartDate={setStartDate}

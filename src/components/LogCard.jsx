@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import axios from "axios";
 import AuthContext from "../store/authContext";
+import { BsFillTrash3Fill } from "react-icons/bs";
 
 const LogCard = (props) => {
   const { log, getUserLogs } = props;
@@ -42,11 +43,24 @@ const LogCard = (props) => {
       .catch((err) => console.log(err))
   };
 
+  const splitDatetime = (datetime) => {
+    const str = datetime.toLocaleString()
+    const [date, time] = str.split(", ")
+    const [shortTime, ampm] = time.split(":00 ")
+  
+    return (<div className="rounded bg-gray-200 p-1 flex flex-col items-center">
+      <h3 className="bg-green-800 text-green-50 px-1 rounded-full">{date}</h3>
+      <h3 className="text-green-900">{shortTime + " " + ampm}</h3>
+    </div>)
+  }
+
   return (
-    <div>
+    <div className="bg-green-800 bg-opacity-10 m-2 rounded flex flex-col items-center p-2">
       {editing ? (
         <>
-          <h3>{newDatetime.toLocaleString()}</h3>
+          <div>
+            <>{splitDatetime(newDatetime)}</>
+          </div>
           {log.log_emotions.map((emotion) => {
             return (
               <div>
@@ -66,7 +80,10 @@ const LogCard = (props) => {
         </>
       ) : (
         <>
-          <h3>{newDatetime.toLocaleString()}</h3>
+          <div className="flex flex-row content-between w-full">
+            <>{splitDatetime(newDatetime)}</>
+            <div></div>
+          </div>
           {log.log_emotions.map((emotion) => {
             return (
               <div>
@@ -77,7 +94,10 @@ const LogCard = (props) => {
           })}
           <p>{log.notes}</p>
           <button onClick={() => setEditing(!editing)}>Edit Notes</button>
-          <button onClick={() => deleteLog(log.id)}>Delete Log</button>
+          <div className="flex flex-row justify-between w-full">
+          <div></div>
+          <button onClick={() => deleteLog(log.id)} className="p-1 px-3 bg-green-800 bg-opacity-20 hover:bg-opacity-70 hover:text-green-50 transition-all duration-300 ease-in-out rounded">Delete</button>
+          </div>
         </>
       )}
     </div>

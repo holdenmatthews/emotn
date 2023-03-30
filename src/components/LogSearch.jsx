@@ -19,7 +19,7 @@ const LogSearch = (props) => {
     }
 
   return (
-    <div>
+    <div className="border-2 rounded p-3 border-green-800">
       <h3>Search for logs within a range of dates(included):</h3>
       <label htmlFor="datemin">Range Start</label>
       <input type="date" name="datemin" value={startDate} onChange={(e) => setMin(e)} />
