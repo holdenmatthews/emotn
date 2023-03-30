@@ -1,7 +1,7 @@
 {
   "name": "mood",
   "version": "0.1.0",
-  "main": "server/index.js", 
+  "main": "server/index.js",
   "proxy": "http://localhost:4444",
   "private": true,
   "dependencies": {
@@ -47,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.0"
   }
 }

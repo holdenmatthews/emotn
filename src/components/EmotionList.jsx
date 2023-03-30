@@ -14,7 +14,8 @@ const EmotionList = (props) => {
       }
 
   return (
-    <div>{emotionList.map((emotion) => {
+    <div>
+      {emotionList.map((emotion) => {
         return <div onClick={handleSelect} key={emotion.id} id={emotion.id}>{emotion.name}</div>
       })}</div>
   )

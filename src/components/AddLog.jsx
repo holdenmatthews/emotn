@@ -2,7 +2,6 @@ import { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 import EmotionList from './EmotionList'
 import LogForm from './LogForm'
-import styles from './addLog.css'
 import AuthContext from '../store/authContext'
 import { useNavigate } from 'react-router-dom'
 

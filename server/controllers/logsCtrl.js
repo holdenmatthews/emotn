@@ -83,12 +83,14 @@ module.exports = {
     console.log("updateLog hit");
     try {
       const { logId } = req.params;
+      const { newNotes } = req.body
       await Log.update(
         {
-          notes
+          notes: newNotes
         },
-        { where: logId }
+        { where: {id: +logId} }
       )
+      res.sendStatus(200)
     } catch (err) {
       console.log(err);
       res.sendStatus(400);

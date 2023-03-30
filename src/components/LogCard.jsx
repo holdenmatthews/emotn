@@ -36,6 +36,7 @@ const LogCard = (props) => {
         }
       })
       .then(() => {
+        setEditing(false)
         getUserLogs()
       })
       .catch((err) => console.log(err))
@@ -61,7 +62,7 @@ const LogCard = (props) => {
             onChange={(e) => setNewNotes(e.target.value)}
           />
           <br />
-          <button onClick={() => editNotes()}>Update</button>
+          <button onClick={() => editNotes(log.id)}>Update</button>
         </>
       ) : (
         <>
