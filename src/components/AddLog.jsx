@@ -12,7 +12,7 @@ const AddLog = () => {
   const [emotionValues, setEmotionValues] = useState({})
   const [notes, setNotes] = useState("")
   const [datetime, setDatetime] = useState("")
-  const { token, userId } = useContext(AuthContext)
+  const { token } = useContext(AuthContext)
   const navigate = useNavigate()
 
   const getEmotions = () => {

@@ -6,7 +6,7 @@ import LogSearch from "./LogSearch";
 
 const Home = () => {
   const [userLogs, setUserLogs] = useState([]);
-  const { token, userId } = useContext(AuthContext);
+  const { token } = useContext(AuthContext);
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [displayLogs, setDisplayLogs] = useState([]);

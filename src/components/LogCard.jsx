@@ -5,7 +5,7 @@ import AuthContext from "../store/authContext";
 const LogCard = (props) => {
   const { log, getUserLogs } = props;
   const { notes, datetime} = log;
-  const { token, userId } = useContext(AuthContext);
+  const { token } = useContext(AuthContext);
   const [editing, setEditing] = useState(false);
   const [newNotes, setNewNotes] = useState(notes);
 
