@@ -7,7 +7,7 @@ module.exports = {
   getAllLogs: async (req, res) => {
     console.log("getAllLogs hit");
     try {
-      const { userId } = req.params;
+      const { userId } = req
       const logs = await Log.findAll({
         where: { userId: userId },
         include: [
@@ -33,7 +33,7 @@ module.exports = {
   addLog: async (req, res) => {
     console.log("addLoghit");
     try {
-      const { userId } = req.params;
+      const { userId } = req
       const { notes, datetime, emotionValues } = req.body;
       console.log(emotionValues);
       const newLog = await Log.create({ userId, notes, datetime });
@@ -79,29 +79,16 @@ module.exports = {
     }
   },
 
-  updateLog: async (req, res) => {
+  updateNotes: async (req, res) => {
     console.log("updateLog hit");
     try {
       const { logId } = req.params;
       await Log.update(
         {
-          notes,
-          datetime,
-          emotionValues,
+          notes
         },
         { where: logId }
-      );
-      Object.keys(emotionValues).forEach(async (key) => {
-        const emotionId = key;
-        const emotion_value = emotionValues[key];
-        await LogEmotion.update(
-          {
-            emotionId,
-            emotion_value,
-          },
-          { where: logId }
-        );
-      });
+      )
     } catch (err) {
       console.log(err);
       res.sendStatus(400);

@@ -5,7 +5,7 @@ const cors = require('cors')
 
 const { SERVER_PORT } = process.env
 const { register, login } = require('./controllers/authCtrl')
-const { getAllLogs, addLog, getEmotions, deleteLog, updateLog } = require('./controllers/logsCtrl')
+const { getAllLogs, addLog, getEmotions, deleteLog, updateNotes } = require('./controllers/logsCtrl')
 const { sequelize } = require('./util/database')
 const { User } = require('./models/user')
 const { Log } = require('./models/log')
@@ -31,10 +31,10 @@ LogEmotion.belongsTo(Emotion)
 app.post('/api/register', register)
 app.post('/api/login', login)
 
-app.get('/api/logs/:userId', isAuthenticated, getAllLogs)
-app.post('/api/logs/:userId', isAuthenticated, addLog)
+app.get('/api/logs/', isAuthenticated, getAllLogs)
+app.post('/api/logs/', isAuthenticated, addLog)
 app.delete('/api/logs/:logId', isAuthenticated, deleteLog)
-app.put('/api/logs/:logId', isAuthenticated, updateLog)
+app.put('/api/logs/:logId', isAuthenticated, updateNotes)
 
 app.get('/api/emotions', isAuthenticated, getEmotions)
 

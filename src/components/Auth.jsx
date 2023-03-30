@@ -19,7 +19,7 @@ const Auth = () => {
           .post(`${baseURL}/api/register`, { username, password })
           .then((res) => {
             console.log(res.data);
-            authCtx.login(res.data.token, res.data.exp, res.data.userId);
+            authCtx.login(res.data.token, res.data.exp);
             setUsername("");
             setPassword("");
           })
@@ -32,7 +32,7 @@ const Auth = () => {
       : axios
           .post(`${baseURL}/api/login`, { username, password })
           .then((res) => {
-            authCtx.login(res.data.token, res.data.exp, res.data.userId);
+            authCtx.login(res.data.token, res.data.exp);
             setUsername("");
             setPassword("");
           })

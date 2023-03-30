@@ -15,7 +15,7 @@ const Home = () => {
 
   const getUserLogs = () => {
     axios
-      .get(`http://localhost:4444/api/logs/${userId}`, {
+      .get(`http://localhost:4444/api/logs`, {
         headers: {
           authorization: token,
         },

@@ -36,7 +36,7 @@ const AddLog = () => {
 
   const addLog = () => {
     // console.log(emotionValues)
-    axios.post(`http://localhost:4444/api/logs/${userId}`, {
+    axios.post(`http://localhost:4444/api/logs`, {
       notes,
       datetime,
       emotionValues
