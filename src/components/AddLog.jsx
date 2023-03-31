@@ -60,15 +60,7 @@ const AddLog = () => {
   }, [])
 
   return (
-    <div className='add-log'>
-      <EmotionList 
-        emotionList={emotionList}
-        setEmotionList={setEmotionList}
-        selectedEmotions={selectedEmotions}
-        setSelectedEmotions={setSelectedEmotions}
-        emotionValues={emotionValues}
-        setEmotionValues={setEmotionValues}
-      />
+    <div className="bg-gray-200 flex flex-col items-center gap-4 p-4 pt-16 min-h-screen">
       <LogForm 
         selectedEmotions={selectedEmotions}
         removeEmotion={removeEmotion}
@@ -79,6 +71,14 @@ const AddLog = () => {
         datetime={datetime}
         setDatetime={setDatetime}
         addLog={addLog}
+      />
+      <EmotionList 
+        emotionList={emotionList}
+        setEmotionList={setEmotionList}
+        selectedEmotions={selectedEmotions}
+        setSelectedEmotions={setSelectedEmotions}
+        emotionValues={emotionValues}
+        setEmotionValues={setEmotionValues}
       />
       </div>
   )

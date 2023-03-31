@@ -78,8 +78,8 @@ const LogCard = (props) => {
             value={newNotes}
             onChange={(e) => setNewNotes(e.target.value)}
           />
-          <button className="p-1 px-3 bg-green-800 bg-opacity-20 hover:bg-opacity-70 text-green-950 hover:text-green-50 transition-all duration-300 ease-in-out rounded mt-1" onClick={() => editNotes(log.id)}>
-            <BsCheckCircle />
+          <button className="flex flex-row gap-2 items-center p-1 px-3 bg-green-800 bg-opacity-20 hover:bg-opacity-70 text-green-950 hover:text-green-50 transition-all duration-300 ease-in-out rounded mt-1" onClick={() => editNotes(log.id)}>
+            <BsCheckCircle /> Update
           </button>
         </>
       ) : (

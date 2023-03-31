@@ -26,7 +26,7 @@ const LogSearch = (props) => {
       <h3 className="m-2">&</h3>
       <input className="m-1 rounded-full p-1 text-green-950 bg-gray-200" type="date" name="datemax" value={endDate} onChange={(e) => setMax(e)} />
       </div>
-      <button className="p-1 px-3 bg-gray-200 hover:bg-opacity-20 bg-opacity-70 text-green-800 hover:text-green-50 transition-all duration-300 ease-in-out rounded mt-2" onClick={() => clearDates()}>Clear Dates</button>
+      <button className="p-1 px-3 bg-gray-200 hover:bg-opacity-20 bg-opacity-70 text-green-950 hover:text-green-50 transition-all duration-300 ease-in-out rounded mt-2" onClick={() => clearDates()}>Clear Dates</button>
     </div>
   );
 };

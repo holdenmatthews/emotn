@@ -1,4 +1,5 @@
 import React from "react";
+import { BsXSquare } from "react-icons/bs";
 
 const EmotionValue = (props) => {
   const {
@@ -15,11 +16,12 @@ const EmotionValue = (props) => {
   };
 
   return (
-    <div>
-      <h3>{emotionName}</h3>
-      <br />
-      <label htmlFor="emotionValue">Value:</label>
+    <div className="bg-gray-200 m-1 rounded">
+    <div className="bg-green-800 bg-opacity-20 p-2 rounded flex flex-col items-center">
+      <h3 className="text-green-950 mb-1">{emotionName}</h3>
+      <div className="flex flex-row justify-between">
       <input
+        className="m-1"
         type="range"
         name="emotionValue"
         min="0"
@@ -28,7 +30,9 @@ const EmotionValue = (props) => {
         onChange={(e) => updateValue(emotionId, e)}
         value={emotionValues[emotionId]}
       />
-      <button onClick={() => removeEmotion(emotionId)}>X</button>
+      <button className="bg-green-800 rounded p-1 transition-all duration-300 ease-in-out hover:bg-opacity-30 hover:text-green-950" onClick={() => removeEmotion(emotionId)}><BsXSquare /></button>
+    </div>
+    </div>
     </div>
   );
 };
