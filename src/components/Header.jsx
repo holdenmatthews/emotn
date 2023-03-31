@@ -7,7 +7,8 @@ const Header = () => {
   const authCtx = useContext(AuthContext);
 
   return (
-    <header className="h-1/5 p-3 bg-green-800 bg-opacity-20">
+    <div className="h-13 bg-gray-200 fixed w-full">
+    <header className="h-13 p-3 bg-green-800 bg-opacity-20 w-full">
       <nav>
         {authCtx.token ? (
           <ul className="flex flex-row justify-start gap-2">
@@ -30,6 +31,7 @@ const Header = () => {
         )}
       </nav>
     </header>
+    </div>
   );
 };
 

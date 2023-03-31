@@ -31,7 +31,7 @@ const Home = () => {
     if (startDate || endDate) {
       userLogs.forEach((log) => {
         if (
-          (startDate ? new Date(startDate).getDate() : new Date("1700-01-01").getDate()) <= new Date(log.datetime).getDate() &&
+          (startDate ? new Date(startDate).getDate() + 1 : new Date("1700-01-01").getDate()) <= new Date(log.datetime).getDate() &&
           (endDate ? new Date(endDate).getDate() + 1 : new Date("9999-01-01").getDate()) >= new Date(log.datetime).getDate()
         ) {
           matchingDateLogs.push(log);
@@ -54,7 +54,7 @@ const Home = () => {
   }, [startDate, endDate, userLogs]);
 
   return (
-    <div className="bg-gray-200 flex flex-col items-center gap-4 p-4">
+    <div className="bg-gray-200 flex flex-col items-center gap-4 p-4 pt-16 min-h-screen">
       <LogSearch
         startDate={startDate}
         setStartDate={setStartDate}

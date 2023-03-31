@@ -52,22 +52,22 @@ const Auth = () => {
     <main className="h-screen bg-gray-200">
       <div className="flex flex-col items-center justify-center h-3/5 gap-6">
         <h1 className="text-green-800 text-3xl">Welcome to Mood!</h1>
-        <form onSubmit={submitHandler} className="flex flex-row gap-4">
+        <form onSubmit={submitHandler} className="flex flex-col justify-center items-center">
           <input
-            className="px-2 rounded"
+            className="px-2 rounded m-1"
             type="text"
             value={username}
             placeholder="username"
             onChange={(e) => setUsername(e.target.value)}
           />
           <input
-            className="px-2 rounded"
+            className="px-2 rounded m-1"
             type="password"
             value={password}
             placeholder="password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button className="p-1 px-3 bg-green-800 bg-opacity-20 hover:bg-opacity-70 hover:text-green-50 transition-all duration-300 ease-in-out rounded">{register ? "Sign Up" : "Login"}</button>
+          <button className="p-1 px-3 bg-green-800 bg-opacity-20 hover:bg-opacity-70 hover:text-green-50 transition-all duration-300 ease-in-out rounded m-1">{register ? "Sign Up" : "Login"}</button>
         </form>
         <button onClick={handleClick} className="p-1 px-3 bg-green-800 bg-opacity-20 hover:bg-opacity-70 hover:text-green-50 transition-all duration-300 ease-in-out rounded">
           Need to {register ? "Login" : "Sign Up"}?

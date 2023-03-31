@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import axios from "axios";
 import AuthContext from "../store/authContext";
-import { BsFillTrash3Fill } from "react-icons/bs";
+import { BsFillTrash3Fill, BsFillPencilFill, BsCheckCircle } from "react-icons/bs";
 
 const LogCard = (props) => {
   const { log, getUserLogs } = props;
@@ -58,45 +58,57 @@ const LogCard = (props) => {
     <div className="bg-green-800 bg-opacity-10 m-2 rounded flex flex-col items-center p-2">
       {editing ? (
         <>
-          <div>
-            <>{splitDatetime(newDatetime)}</>
-          </div>
-          {log.log_emotions.map((emotion) => {
-            return (
-              <div>
-                <h4>{emotion.emotion.name}</h4>
-                <h4>{emotion.emotion_value}</h4>
-              </div>
-            );
-          })}
-          <label htmlFor="notes">Notes</label>
-          <textarea
-            name="notes"
-            value={newNotes}
-            onChange={(e) => setNewNotes(e.target.value)}
-          />
-          <br />
-          <button onClick={() => editNotes(log.id)}>Update</button>
-        </>
-      ) : (
-        <>
           <div className="flex flex-row content-between w-full">
             <>{splitDatetime(newDatetime)}</>
             <div></div>
           </div>
+          <div className="m-1 flex flex-row flex-wrap justify-center">
           {log.log_emotions.map((emotion) => {
             return (
-              <div>
-                <h4>{emotion.emotion.name}</h4>
-                <h4>{emotion.emotion_value}</h4>
+              <div className="m-2 flex flex-col items-center bg-green-800 bg-opacity-20 p-2 rounded text-green-950 w-32">
+                <h4 className="mb-1">{emotion.emotion.name}</h4>
+                <h4 className="w-8 p-1 bg-green-800 text-green-50 rounded-full text-center">{emotion.emotion_value}</h4>
               </div>
             );
           })}
-          <p>{log.notes}</p>
-          <button onClick={() => setEditing(!editing)}>Edit Notes</button>
+          </div>
+          <textarea
+            className="bg-gray-200 w-full rounded text-green-950 mb-1 p-2 border-solid border-2 border-green-800"
+            name="notes"
+            value={newNotes}
+            onChange={(e) => setNewNotes(e.target.value)}
+          />
+          <button className="p-1 px-3 bg-green-800 bg-opacity-20 hover:bg-opacity-70 text-green-950 hover:text-green-50 transition-all duration-300 ease-in-out rounded mt-1" onClick={() => editNotes(log.id)}>
+            <BsCheckCircle />
+          </button>
+        </>
+      ) : (
+        <>
+          <div className="m-1 flex flex-row content-between w-full">
+            <>{splitDatetime(newDatetime)}</>
+            <div></div>
+          </div>
+          <div className="m-1 flex flex-row flex-wrap justify-center">
+          {log.log_emotions.map((emotion) => {
+            return (
+              <div className="m-1 flex flex-col items-center bg-green-800 bg-opacity-20 p-2 rounded text-green-950 w-32">
+                <h4 className="mb-1">{emotion.emotion.name}</h4>
+                <h4 className="w-8 p-1 bg-green-800 text-green-50 rounded-full text-center">{emotion.emotion_value}</h4>
+              </div>
+            );
+          })}
+          </div>
+          <div className="bg-gray-200 p-2 rounded flex flex-col items-start m-1 w-full">
+          <div className="mb-1 text-green-950">{log.notes}</div>
+          <button onClick={() => setEditing(!editing)} className="p-1 px-3 bg-green-800 bg-opacity-20 hover:bg-opacity-70 text-green-950 hover:text-green-50 transition-all duration-300 ease-in-out rounded">
+            <BsFillPencilFill />
+          </button>
+          </div>
           <div className="flex flex-row justify-between w-full">
           <div></div>
-          <button onClick={() => deleteLog(log.id)} className="p-1 px-3 bg-green-800 bg-opacity-20 hover:bg-opacity-70 hover:text-green-50 transition-all duration-300 ease-in-out rounded">Delete</button>
+          <button onClick={() => deleteLog(log.id)} className="p-1 m-1 px-3 bg-green-800 bg-opacity-20 hover:bg-opacity-70 text-green-950 hover:text-green-50 transition-all duration-300 ease-in-out rounded">
+            <BsFillTrash3Fill />
+          </button>
           </div>
         </>
       )}
