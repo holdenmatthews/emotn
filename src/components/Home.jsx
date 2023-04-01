@@ -45,7 +45,7 @@ const Home = () => {
 
   useEffect(() => {
     getUserLogs();
-    console.log(userLogs);
+    // console.log(userLogs);
   }, []);
 
   useEffect(() => {

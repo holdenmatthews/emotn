@@ -16,7 +16,8 @@ const LogForm = (props) => {
   } = props;
 
   return (
-    <div className="p-1 flex flex-col items-center bg-green-800 w-full rounded text-green-50">
+    <div className="w-full bg-gray-200 fixed flex justify-center p-4">
+    <div className="p-1 flex flex-col items-center bg-green-800 rounded w-11/12 text-green-50">
       <label className="m-1" htmlFor="datetime">When is this log for?</label>
       <input
       className="m-1 rounded-full p-1 text-green-950 bg-gray-200"
@@ -45,6 +46,7 @@ const LogForm = (props) => {
         onChange={(e) => setNotes(e.target.value)}
       />
       <button className="p-1 m-1 px-3 bg-gray-200 bg-opacity-70 hover:bg-opacity-30 text-green-950 hover:text-green-50 transition-all duration-300 ease-in-out rounded mt-1 flex flex-row gap-2 items-center" onClick={() => addLog()}><BsCheckCircle />Submit</button>
+    </div>
     </div>
   );
 };
