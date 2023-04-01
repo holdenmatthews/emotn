@@ -31,8 +31,8 @@ const Home = () => {
     if (startDate || endDate) {
       userLogs.forEach((log) => {
         if (
-          (startDate ? new Date(startDate).getDate() + 1 : new Date("1700-01-01").getDate()) <= new Date(log.datetime).getDate() &&
-          (endDate ? new Date(endDate).getDate() + 1 : new Date("9999-01-01").getDate()) >= new Date(log.datetime).getDate()
+          (startDate ? new Date(startDate).getTime() : new Date("1700-01-01").getTime()) <= new Date(log.datetime).getTime() &&
+          (endDate ? new Date(endDate).getTime() + 86400000 : new Date("9999-01-01").getTime()) >= new Date(log.datetime).getTime()
         ) {
           matchingDateLogs.push(log);
         }
