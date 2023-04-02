@@ -2,201 +2,56 @@ const { sequelize } = require("./database");
 const { Emotion } = require("../models/emotion");
 
 const emotions = [
-  {
-    name: "Anger",
-  },
-
-  {
-    name: "Annoyance",
-  },
-
-  {
-    name: "Contempt",
-  },
-
-  {
-    name: "Disgust",
-  },
-
-  {
-    name: "Irritation",
-  },
-
-  {
-    name: "Anxiety",
-  },
-
-  {
-    name: "Embarrassment",
-  },
-
-  {
-    name: "Fear",
-  },
-
-  {
-    name: "Helplessness",
-  },
-
-  {
-    name: "Powerlessness",
-  },
-
-  {
-    name: "Worry",
-  },
-
-  {
-    name: "Pride",
-  },
-
-  {
-    name: "Doubt",
-  },
-
-  {
-    name: "Envy",
-  },
-
-  {
-    name: "Frustration",
-  },
-
-  {
-    name: "Guilt",
-  },
-
-  {
-    name: "Shame",
-  },
-
-  {
-    name: "Boredom",
-  },
-
-  {
-    name: "Despair",
-  },
-
-  {
-    name: "Disappointment",
-  },
-
-  {
-    name: "Hurt",
-  },
-
-  {
-    name: "Sadness",
-  },
-
-  {
-    name: "Stress",
-  },
-
-  {
-    name: "Shock",
-  },
-
-  {
-    name: "Tension",
-  },
-
-  {
-    name: "Amusement",
-  },
-
-  {
-    name: "Delight",
-  },
-
-  {
-    name: "Elation",
-  },
-
-  {
-    name: "Excitement",
-  },
-
-  {
-    name: "Happiness",
-  },
-
-  {
-    name: "Joy",
-  },
-
-  {
-    name: "Pleasure",
-  },
-
-  {
-    name: "Affection",
-  },
-
-  {
-    name: "Empathy",
-  },
-
-  {
-    name: "Friendliness",
-  },
-
-  {
-    name: "Love",
-  },
-
-  {
-    name: "Courage",
-  },
-
-  {
-    name: "Hope",
-  },
-
-  {
-    name: "Humility",
-  },
-
-  {
-    name: "Satisfaction",
-  },
-
-  {
-    name: "Trust",
-  },
-
-  {
-    name: "Calmness",
-  },
-
-  {
-    name: "Contentment",
-  },
-
-  {
-    name: "Relaxation",
-  },
-
-  {
-    name: "Relief",
-  },
-
-  {
-    name: "Serenity",
-  },
-
-  {
-    name: "Interest",
-  },
-
-  {
-    name: "Politeness",
-  },
-
-  {
-    name: "Surprise",
-  },
+  { name: Affection },
+  { name: Amusement },
+  { name: Anger },
+  { name: Annoyance },
+  { name: Anxiety },
+  { name: Boredom },
+  { name: Calmness },
+  { name: Contempt },
+  { name: Contentment },
+  { name: Courage },
+  { name: Delight },
+  { name: Depression },
+  { name: Despair },
+  { name: Disappointment },
+  { name: Disgust },
+  { name: Doubt },
+  { name: Elation },
+  { name: Embarrassment },
+  { name: Empathy },
+  { name: Envy },
+  { name: Excitement },
+  { name: Fear },
+  { name: Friendliness },
+  { name: Frustration },
+  { name: Guilt },
+  { name: Happiness },
+  { name: Helplessness },
+  { name: Hope },
+  { name: Humility },
+  { name: Hurt },
+  { name: Interest },
+  { name: Irritation },
+  { name: Joy },
+  { name: Love },
+  { name: Pleasure },
+  { name: Politeness },
+  { name: Powerlessness },
+  { name: Pride },
+  { name: Relaxation },
+  { name: Relief },
+  { name: Sadness },
+  { name: Satisfaction },
+  { name: Serenity },
+  { name: Shame },
+  { name: Shock },
+  { name: Stress },
+  { name: Surprise },
+  { name: Tension },
+  { name: Trust },
+  { name: Worry }
 ];
 
 const seedDatabase = async () => {
