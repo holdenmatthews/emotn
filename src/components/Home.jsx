@@ -31,8 +31,14 @@ const Home = () => {
     if (startDate || endDate) {
       userLogs.forEach((log) => {
         if (
-          (startDate ? new Date(startDate).getTime() : new Date("1700-01-01").getTime()) <= new Date(log.datetime).getTime() &&
-          (endDate ? new Date(endDate).getTime() + 86400000 : new Date("9999-01-01").getTime()) >= new Date(log.datetime).getTime()
+          (startDate
+            ? new Date(startDate).getTime()
+            : new Date("1700-01-01").getTime()) <=
+            new Date(log.datetime).getTime() &&
+          (endDate
+            ? new Date(endDate).getTime() + 86400000
+            : new Date("9999-01-01").getTime()) >=
+            new Date(log.datetime).getTime()
         ) {
           matchingDateLogs.push(log);
         }
@@ -61,7 +67,20 @@ const Home = () => {
         endDate={endDate}
         setEndDate={setEndDate}
       />
-      <LogDisplay displayLogs={displayLogs} key={1} getUserLogs={getUserLogs} />
+      {userLogs.length === 0 ? (
+        <div className="p-2 bg-green-800 bg-opacity-10 rounded">
+          <h3 className="text-green-950 text-center">
+          It looks like you don't have any logs yet. Create one to see it
+          displayed here!
+        </h3>
+        </div>
+      ) : (
+        <LogDisplay
+          displayLogs={displayLogs}
+          key={1}
+          getUserLogs={getUserLogs}
+          />
+      )}
     </div>
   );
 };

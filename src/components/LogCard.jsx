@@ -48,19 +48,18 @@ const LogCard = (props) => {
     const [date, time] = str.split(", ")
     const [shortTime, ampm] = time.split(":00 ")
   
-    return (<div className="rounded bg-gray-200 p-1 flex flex-col items-center">
-      <h3 className="bg-green-800 text-green-50 px-1 rounded-full">{date}</h3>
+    return (<div className="shadow-md rounded bg-gray-200 p-1 flex flex-col items-center">
+      <h3 className="shadow bg-green-800 text-green-50 px-1 rounded-full">{date}</h3>
       <h3 className="text-green-900">{shortTime + " " + ampm}</h3>
     </div>)
   }
 
   return (
-    <div className="bg-green-800 bg-opacity-10 m-2 rounded flex flex-col items-center p-2">
+    <div className="shadow-md bg-green-800 bg-opacity-10 m-2 rounded flex flex-col items-center p-2">
       {editing ? (
         <>
-          <div className="flex flex-row content-between w-full">
+          <div className="flex flex-row w-full">
             <>{splitDatetime(newDatetime)}</>
-            <div></div>
           </div>
           <div className="m-1 flex flex-row flex-wrap justify-center">
           {log.log_emotions.map((emotion) => {
@@ -84,29 +83,27 @@ const LogCard = (props) => {
         </>
       ) : (
         <>
-          <div className="m-1 flex flex-row content-between w-full">
+          <div className="m-1 flex flex-row w-full">
             <>{splitDatetime(newDatetime)}</>
-            <div></div>
           </div>
           <div className="m-1 flex flex-row flex-wrap justify-center">
           {log.log_emotions.map((emotion) => {
             return (
-              <div className="m-1 flex flex-col items-center bg-green-800 bg-opacity-20 p-2 rounded text-green-950 w-32">
+              <div className="shadow-md m-1 flex flex-col items-center bg-green-800 bg-opacity-20 p-2 rounded text-green-950 w-32">
                 <h4 className="mb-1">{emotion.emotion.name}</h4>
-                <h4 className="w-8 p-1 bg-green-800 text-green-50 rounded-full text-center">{emotion.emotion_value}</h4>
+                <h4 className="shadow-md w-8 p-1 bg-green-800 text-green-50 rounded-full text-center">{emotion.emotion_value}</h4>
               </div>
             );
           })}
           </div>
-          <div className="bg-gray-200 p-2 rounded flex flex-col items-start m-1 w-full">
+          <div className="shadow-md bg-gray-200 p-2 rounded flex flex-col items-start m-1 w-full">
           <div className="mb-1 text-green-950">{log.notes}</div>
-          <button onClick={() => setEditing(!editing)} className="p-1 px-3 bg-green-800 bg-opacity-20 hover:bg-opacity-70 text-green-950 hover:text-green-50 transition-all duration-300 ease-in-out rounded">
+          <button onClick={() => setEditing(!editing)} className="shadow p-1 px-3 bg-green-800 bg-opacity-20 hover:bg-opacity-70 text-green-950 hover:text-green-50 transition-all duration-300 ease-in-out rounded">
             <BsFillPencilFill />
           </button>
           </div>
-          <div className="flex flex-row justify-between w-full">
-          <div></div>
-          <button onClick={() => deleteLog(log.id)} className="p-1 m-1 px-3 bg-green-800 bg-opacity-20 hover:bg-opacity-70 text-green-950 hover:text-green-50 transition-all duration-300 ease-in-out rounded">
+          <div className="flex flex-row justify-end w-full">
+          <button onClick={() => deleteLog(log.id)} className="shadow mt-1 p-1 px-3 bg-green-800 bg-opacity-20 hover:bg-opacity-70 text-green-950 hover:text-green-50 transition-all duration-300 ease-in-out rounded">
             <BsFillTrash3Fill />
           </button>
           </div>
