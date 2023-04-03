@@ -16,7 +16,7 @@ const LogForm = (props) => {
   } = props;
 
   return (
-    <div className="w-full bg-gray-200 fixed flex justify-center p-4 pb-0">
+    <div className="w-full bg-gray-200 sticky top-12 flex justify-center p-4 pb-0">
     <div className="shadow-xl p-1 flex flex-col items-center bg-green-800 rounded w-11/12 text-green-50">
       <label className="m-1" htmlFor="datetime">When is this log for?</label>
       <input
