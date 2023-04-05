@@ -81,7 +81,7 @@ const AddLog = () => {
           </div>
         </main>
       ) : (
-        <div className="bg-gray-200 flex flex-col items-center gap-4 p-4 pt-12 min-h-screen">
+        <div className="bg-gray-200 flex flex-col lg:flex-row-reverse lg:items-start items-center gap-4 p-4 pt-12 min-h-screen">
           <LogForm
             selectedEmotions={selectedEmotions}
             removeEmotion={removeEmotion}
