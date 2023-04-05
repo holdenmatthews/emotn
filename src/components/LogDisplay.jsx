@@ -12,7 +12,7 @@ const LogDisplay = (props) => {
     );
   } else {
     return (
-      <div className="w-1/2">
+      <div className="lg:w-1/2">
         {displayLogs
           .sort(
             (a, b) =>
