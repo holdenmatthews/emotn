@@ -55,7 +55,7 @@ const LogCard = (props) => {
   }
 
   return (
-    <div className="shadow-md bg-green-800 bg-opacity-10 m-2 rounded flex flex-col items-center p-2">
+    <div className="shadow-md bg-green-800 bg-opacity-10 m-2 rounded flex flex-col items-center p-2 lg:min-w-full">
       {editing ? (
         <>
           <div className="flex flex-row w-full">
