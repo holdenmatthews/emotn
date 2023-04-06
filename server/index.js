@@ -41,7 +41,7 @@ app.put('/api/logs/:logId', isAuthenticated, updateNotes)
 app.get('/api/emotions', isAuthenticated, getEmotions)
 
 app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirnam, '../build', 'index.html'))
+    res.sendFile(path.join(__dirname, '../build', 'index.html'))
 })
 
 // sequelize.sync({ force: true }).then(() => seedDatabase())
