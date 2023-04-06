@@ -10,7 +10,7 @@ const Auth = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState("");
 
-  const baseURL = "https://emotn.herokuapp.com/";
+  const baseURL = "https://emotn.herokuapp.com";
 
   const authCtx = useContext(AuthContext);
 
