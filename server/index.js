@@ -47,6 +47,6 @@ app.get('/*', function (req, res) {
 // sequelize.sync({ force: true }).then(() => seedDatabase())
 sequelize.sync()
 .then(() => {
-    app.listen(PORT, () => console.log(`better go catch that server! (she's up and running on port ${PORT})`))
+    app.listen(process.env.PORT, () => console.log(`better go catch that server! (she's up and running on port ${PORT})`))
 })
 .catch(err => console.log(err))
