@@ -14,7 +14,7 @@ const LogCard = (props) => {
 
   const deleteLog = (logId) => {
     axios
-      .delete(`http://localhost:4444/api/logs/${logId}`, {
+      .delete(`https://emotn.herokuapp.com/api/logs/${logId}`, {
         headers: {
           authorization: token,
         },
@@ -27,7 +27,7 @@ const LogCard = (props) => {
 
   const editNotes = (logId) => {
     axios.put(
-      `http://localhost:4444/api/logs/${logId}`,
+      `https://emotn.herokuapp.com/api/logs/${logId}`,
       {
         newNotes
       },
