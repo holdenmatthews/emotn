@@ -70,7 +70,7 @@ const AddLog = () => {
 
   useEffect(() => {
     getEmotions();
-  }, []);
+  });
 
   return (
     <>
