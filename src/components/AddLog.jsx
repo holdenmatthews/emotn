@@ -18,7 +18,7 @@ const AddLog = () => {
 
   const getEmotions = () => {
     axios
-      .get(`http://localhost:4444/api/emotions`, {
+      .get(`https://emotn.herokuapp.com/api/emotions`, {
         headers: {
           authorization: token,
         },
@@ -45,7 +45,7 @@ const AddLog = () => {
 
     axios
       .post(
-        `http://localhost:4444/api/logs`,
+        `https://emotn.herokuapp.com/api/logs`,
         {
           notes,
           datetime,

@@ -15,7 +15,7 @@ const Home = () => {
 
   const getUserLogs = () => {
     axios
-      .get(`http://localhost:4444/api/logs`, {
+      .get(`https://emotn.herokuapp.com/api/logs`, {
         headers: {
           authorization: token,
         },
